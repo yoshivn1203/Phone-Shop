@@ -40,10 +40,10 @@
 }
 
 .minus:hover {
-  background-color: #717fe0 !important;
+  background-color: #4166af !important;
 }
 .plus:hover {
-  background-color: #717fe0 !important;
+  background-color: #4166af !important;
 }
 /*Prevent text selection*/
 span {
