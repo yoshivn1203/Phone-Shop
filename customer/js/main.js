@@ -43,10 +43,9 @@ const renderList = (phoneList) => {
   getEle('phoneList').innerHTML = content;
 };
 
-const renderCart = (phoneList) => {
+const renderCart = (cart) => {
   let content = '';
-
-  phoneList.forEach((ele) => {
+  cart.forEach((ele) => {
     content += `<div class="product">
   <div class="product__1">
     <div class="product__thumbnail">
@@ -64,15 +63,17 @@ const renderCart = (phoneList) => {
       <div style="font-size: 90%;">Front Camera: <span class="tertiary">${
         ele.product.frontCamera
       }</span></div>
-      <div style="margin-top: 8px;"><a href="#">Remove</a></div>
+      <div style="margin-top: 8px;"><a href="#" onclick ="btnRemovePhone('${
+        ele.product.id
+      }')">Remove</a></div>
     </div>
   </div>
   <div class="product__2">
     <div class="qty">
       <span><b>Quantity:</b> </span> &nbsp &nbsp
-      <span class="minus bg-dark">-</span>
+      <span class="minus bg-dark" onclick ="btnMinus('${ele.product.id}')">-</span>
       <input type="number" class="count" name="qty" value="${ele.quantity}">
-      <span class="plus bg-dark">+</span>
+      <span class="plus bg-dark" onclick ="btnAdd('${ele.product.id}')">+</span>
     </div>
     <div class="product__price"><b>$${ele.quantity * ele.product.price}</b></div>
   </div>
@@ -87,10 +88,9 @@ window.onload = async () => {
 };
 
 getEle('selectList').onclick = async () => {
-  let filterData = [];
   const data = await getListPhone();
   const selectValue = getEle('selectList').value;
-  filterData =
+  let filterData =
     selectValue == 'all' ? data : data.filter((ele) => ele.type == selectValue);
   renderList(filterData);
 };
@@ -121,5 +121,31 @@ window.btnAddToCart = async (productId) => {
   if (quantity < 1) {
     cart.push(cartItem);
   }
+  renderCart(cart);
+};
+
+window.btnAdd = (id) => {
+  cart.forEach((ele) => {
+    if (ele.product.id == id) {
+      ele.quantity++;
+      return;
+    }
+  });
+  renderCart(cart);
+};
+
+window.btnMinus = (id) => {
+  cart.forEach((ele) => {
+    if (ele.product.id == id) {
+      ele.quantity--;
+      return;
+    }
+  });
+  cart = cart.filter((ele) => ele.quantity != 0);
+  renderCart(cart);
+};
+
+window.btnRemovePhone = (id) => {
+  cart = cart.filter((ele) => ele.product.id != id);
   renderCart(cart);
 };
