@@ -85,6 +85,7 @@ img {
 
 .card {
   border: solid 1px rgb(238, 238, 238);
+  border-radius: 15px;
   padding: 10px;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
@@ -131,9 +132,7 @@ img {
 .card span {
   font-weight: 400;
 }
-.card span.desc-title {
-  font-weight: 600;
-}
+
 .card b {
   font-weight: 600;
 }
