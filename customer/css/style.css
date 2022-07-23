@@ -90,6 +90,7 @@ img {
   transition: 0.3s all ease-in-out;
   height: 600px;
   max-width: 100%;
+  overflow: hidden;
 }
 .card:hover {
   box-shadow: 2px 2px 15px #318c92e5;
@@ -112,9 +113,19 @@ img {
 .card .btn {
   background-color: #294d5c;
   font-size: 17px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: 0.5s;
+  z-index: 1;
 }
+
+.card:hover .btn {
+  top: 92%;
+}
+
 .card .btn:hover {
-  background-color: #4166af;
+  background-color: #468099;
 }
 
 .card span {

@@ -47,10 +47,12 @@ h2 {
   transition: all 0.15s;
 }
 .btn:hover {
+  outline: none;
   background-color: #535e65;
 }
 .btn:focus {
-  outline: none;
+  outline: 0;
+  box-shadow: none !important;
   box-shadow: 0 0 0 2px #404b61, inset 0 0 0 2px #ffffff;
 }
 .btn:active {
