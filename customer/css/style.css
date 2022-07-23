@@ -1,22 +1,13 @@
 html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
   position: relative;
   min-height: 100%;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 body {
+  padding-top: 70px;
   margin-bottom: 0px;
-  margin-top: 46px;
 }
 
 .nav1 {
@@ -36,12 +27,6 @@ footer {
   bottom: 0;
   width: 100%;
   /*height: 65rem;*/
-}
-
-#sticky {
-  margin-top: 0px;
-  height: 45px;
-  padding: 10px;
 }
 
 .main-color {
@@ -118,7 +103,7 @@ img {
 }
 
 .card:hover .btn {
-  top: 92%;
+  top: 93%;
 }
 
 .card .btn:hover {

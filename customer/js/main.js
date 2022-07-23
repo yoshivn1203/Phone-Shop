@@ -1,16 +1,20 @@
 const getEle = (id) => document.getElementById(id);
 
 import { Service } from './service/phoneService.js';
+import { CartProduct } from './model/cartProduct.js';
+import { Product } from './model/product.js';
+
 const service = new Service();
+let cart = [];
 
 const getListPhone = async () => {
   const res = await service.getPhones();
   return res.data;
 };
 
-const renderList = (data) => {
+const renderList = (phoneList) => {
   let content = '';
-  data.forEach((ele) => {
+  phoneList.forEach((ele) => {
     content += ` <div class="col-lg-4 col-md-6">
     <div class="card text-black h-100">
       <img src=${ele.img} class="card-img" alt="Phone Image" />
@@ -31,32 +35,91 @@ const renderList = (data) => {
         <div class="d-flex justify-content-start pt-1 pb-5">
           <span><b>Description:</b> ${ele.desc}</span>
         </div>
-        <button type="button" class="btn btn-block btn-danger w-100">Add to cart</button>
+        <button type="button" class="btn btn-block btn-danger w-100" onclick ="btnAddToCart('${ele.id}')">Add to cart</button>
       </div>
     </div>
   </div>`;
   });
-
   getEle('phoneList').innerHTML = content;
 };
 
+const renderCart = (phoneList) => {
+  let content = '';
+
+  phoneList.forEach((ele) => {
+    content += `<div class="product">
+  <div class="product__1">
+    <div class="product__thumbnail">
+      <img src=${ele.product.img} 
+        alt="Italian Trulli">
+    </div>
+    <div class="product__details">
+      <div style="margin-bottom: 8px;"><b>${ele.product.name}</b></div>
+      <div style="font-size: 90%;">Screen: <span class="tertiary">${
+        ele.product.screen
+      }</span></div>
+      <div style="font-size: 90%;">Back Camera: <span class="tertiary">${
+        ele.product.backCamera
+      }</span></div>
+      <div style="font-size: 90%;">Front Camera: <span class="tertiary">${
+        ele.product.frontCamera
+      }</span></div>
+      <div style="margin-top: 8px;"><a href="#">Remove</a></div>
+    </div>
+  </div>
+  <div class="product__2">
+    <div class="qty">
+      <span><b>Quantity:</b> </span> &nbsp &nbsp
+      <span class="minus bg-dark">-</span>
+      <input type="number" class="count" name="qty" value="${ele.quantity}">
+      <span class="plus bg-dark">+</span>
+    </div>
+    <div class="product__price"><b>$${ele.quantity * ele.product.price}</b></div>
+  </div>
+</div>`;
+  });
+  getEle('cartList').innerHTML = content;
+};
+
 window.onload = async () => {
-  const data = await getListPhone();
-  renderList(data);
+  const phoneList = await getListPhone();
+  renderList(phoneList);
 };
 
 getEle('selectList').onclick = async () => {
   let filterData = [];
   const data = await getListPhone();
   const selectValue = getEle('selectList').value;
-  if (selectValue == 'all') {
-    filterData = data;
-  } else {
-    data.forEach((ele) => {
-      if (ele.type == selectValue) {
-        filterData.push(ele);
-      }
-    });
-  }
+  filterData =
+    selectValue == 'all' ? data : data.filter((ele) => ele.type == selectValue);
   renderList(filterData);
+};
+
+window.btnAddToCart = async (productId) => {
+  let quantity = 0;
+  const res = await service.getPhoneById(productId);
+  const { id, name, price, screen, backCamera, frontCamera, img, desc, type } = res.data;
+  const product = new Product(
+    id,
+    name,
+    price,
+    screen,
+    backCamera,
+    frontCamera,
+    img,
+    desc,
+    type
+  );
+  const cartItem = new CartProduct(product, 1);
+  cart.forEach((ele) => {
+    if (ele.product.id == cartItem.product.id) {
+      ele.quantity++;
+      quantity = ele.quantity;
+      return;
+    }
+  });
+  if (quantity < 1) {
+    cart.push(cartItem);
+  }
+  renderCart(cart);
 };
