@@ -52,7 +52,7 @@
                 aria-expanded="false">
                 <div>
                   <i class="fa-solid fa-xl fa-shopping-cart"></i>
-                  <span class="badge rounded-pill badge-notification bg-light text-dark"></span>
+                  <span class="badge rounded-pill badge-notification bg-light text-dark" id = 'cartCount'></span>
                 </div>
                 Cart
               </a>
@@ -100,15 +100,15 @@
               </tr>
               <tr>
                 <th class="align-left font-normal tertiary">Shipping <small>(estimated)<small></th>
-                <td class="align-right">$10.00</td>
+                <td class="align-right" id="shipping">$0</td>
               </tr>
               <tr>
                 <th class="align-left font-normal tertiary">Tax <small>(estimated)<small></th>
-                <td class="align-right" id="tax">$13.00</td>
+                <td class="align-right" id="tax">$0</td>
               </tr>
               <tr>
                 <th class="align-left">Total</th>
-                <td class="align-right" id="priceTotal"><b>$3,456.78.00</b></td>
+                <td class="align-right" id="priceTotal">$0</td>
               </tr>
             </tbody>
             <tfoot>
@@ -118,8 +118,10 @@
             </tfoot>
           </table>
           <div class="form__footer">
-            <button class="btn btn--secondary first js-toggle-cart">Continue Shopping</button> <button
-              class="btn">Pay Now</button>
+            <button class="btn first js-toggle-cart">Continue Shopping</button>
+             <button class="btn">Pay Now</button>
+             <button class="btn me-5 ms-0 px-4" onclick="emptyCart()"><i class="fa-solid fa-trash me-2"></i> Empty Cart</button>
+              
           </div>
         </div>
       </div>

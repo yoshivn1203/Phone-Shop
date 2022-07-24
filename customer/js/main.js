@@ -63,7 +63,7 @@ const renderCart = (cart) => {
       <div style="font-size: 90%;">Front Camera: <span class="tertiary">${
         ele.product.frontCamera
       }</span></div>
-      <div style="margin-top: 8px;"><a href="#" onclick ="btnRemovePhone('${
+      <div style="margin-top: 8px;"><a href="#" onclick ="btnRemove('${
         ele.product.id
       }')">Remove</a></div>
     </div>
@@ -88,6 +88,20 @@ const calculateSubTotal = (cart) => {
     subTotal += ele.product.price * ele.quantity;
   });
   return subTotal;
+};
+
+const showCartStat = (cart) => {
+  let cartCount = 0;
+  cart.forEach((ele) => {
+    cartCount += ele.quantity;
+  });
+  const subTotal = calculateSubTotal(cart);
+  const shipping = subTotal > 0 ? 10 : 0;
+  getEle('cartCount').innerHTML = cartCount;
+  getEle('shipping').innerHTML = '$' + shipping;
+  getEle('subTotal').innerHTML = '$' + subTotal;
+  getEle('tax').innerHTML = '$' + Math.floor(subTotal * 0.1);
+  getEle('priceTotal').innerHTML = '$' + Math.floor(subTotal * 1.1 + shipping);
 };
 
 window.onload = async () => {
@@ -129,7 +143,7 @@ window.btnAddToCart = async (productId) => {
   if (quantity < 1) {
     cart.push(cartItem);
   }
-  getEle('subTotal').innerHTML = '$' + calculateSubTotal(cart);
+  showCartStat(cart);
   renderCart(cart);
 };
 
@@ -140,7 +154,7 @@ window.btnAdd = (id) => {
       return;
     }
   });
-  getEle('subTotal').innerHTML = '$' + calculateSubTotal(cart);
+  showCartStat(cart);
   renderCart(cart);
 };
 
@@ -152,11 +166,18 @@ window.btnMinus = (id) => {
     }
   });
   cart = cart.filter((ele) => ele.quantity != 0);
-  getEle('subTotal').innerHTML = '$' + calculateSubTotal(cart);
+  showCartStat(cart);
   renderCart(cart);
 };
 
-window.btnRemovePhone = (id) => {
+window.btnRemove = (id) => {
   cart = cart.filter((ele) => ele.product.id != id);
+  showCartStat(cart);
+  renderCart(cart);
+};
+
+window.emptyCart = () => {
+  cart = [];
+  showCartStat(cart);
   renderCart(cart);
 };
