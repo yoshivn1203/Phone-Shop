@@ -1,7 +1,7 @@
 const getEle = (id) => document.getElementById(id);
 
 import { Service } from './service/phoneService.js';
-import { CartProduct } from './model/cartProduct.js';
+import { CartItem } from './model/cartItem.js';
 import { Product } from './model/product.js';
 
 const service = new Service();
@@ -63,7 +63,7 @@ const renderCart = (cart) => {
       <div style="font-size: 90%;">Front Camera: <span class="tertiary">${
         ele.product.frontCamera
       }</span></div>
-      <div style="margin-top: 8px;"><a href="#" onclick ="btnRemove('${
+      <div style="margin-top: 8px;"><a href="#!" onclick ="btnRemove('${
         ele.product.id
       }')">Remove</a></div>
     </div>
@@ -80,17 +80,6 @@ const renderCart = (cart) => {
 </div>`;
   });
   getEle('cartList').innerHTML = content;
-};
-
-const calculateSubTotal = (cart) => {
-  let subTotal = 0;
-  cart.forEach((ele) => {
-    subTotal += ele.product.price * ele.quantity;
-  });
-  return subTotal;
-};
-
-const showCartStat = (cart) => {
   let cartCount = 0;
   cart.forEach((ele) => {
     cartCount += ele.quantity;
@@ -104,9 +93,19 @@ const showCartStat = (cart) => {
   getEle('priceTotal').innerHTML = '$' + Math.floor(subTotal * 1.1 + shipping);
 };
 
+const calculateSubTotal = (cart) => {
+  let subTotal = 0;
+  cart.forEach((ele) => {
+    subTotal += ele.product.price * ele.quantity;
+  });
+  return subTotal;
+};
+
 window.onload = async () => {
   const phoneList = await getListPhone();
   renderList(phoneList);
+  cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : cart;
+  renderCart(cart);
 };
 
 getEle('selectList').onclick = async () => {
@@ -132,7 +131,7 @@ window.btnAddToCart = async (productId) => {
     desc,
     type
   );
-  const cartItem = new CartProduct(product, 1);
+  const cartItem = new CartItem(product, 1);
   cart.forEach((ele) => {
     if (ele.product.id == cartItem.product.id) {
       ele.quantity++;
@@ -143,8 +142,8 @@ window.btnAddToCart = async (productId) => {
   if (quantity < 1) {
     cart.push(cartItem);
   }
-  showCartStat(cart);
   renderCart(cart);
+  localStorage.setItem('cart', JSON.stringify(cart));
 };
 
 window.btnAdd = (id) => {
@@ -154,8 +153,8 @@ window.btnAdd = (id) => {
       return;
     }
   });
-  showCartStat(cart);
   renderCart(cart);
+  localStorage.setItem('cart', JSON.stringify(cart));
 };
 
 window.btnMinus = (id) => {
@@ -166,29 +165,38 @@ window.btnMinus = (id) => {
     }
   });
   cart = cart.filter((ele) => ele.quantity != 0);
-  showCartStat(cart);
   renderCart(cart);
+  localStorage.setItem('cart', JSON.stringify(cart));
 };
 
 window.btnRemove = (id) => {
   cart = cart.filter((ele) => ele.product.id != id);
-  showCartStat(cart);
   renderCart(cart);
+  localStorage.setItem('cart', JSON.stringify(cart));
 };
 
 window.emptyCart = () => {
   cart = [];
-  showCartStat(cart);
   renderCart(cart);
+  localStorage.setItem('cart', JSON.stringify(cart));
 };
 
 window.payNow = () => {
-  Swal.fire({
-    // position: 'top-end',
-    icon: 'success',
-    title: 'Your order is completed',
-    showConfirmButton: false,
-    timer: 1500,
-  });
-  emptyCart();
+  if (cart.length > 0) {
+    Swal.fire({
+      // position: 'top-end',
+      icon: 'success',
+      title: 'Your order is completed',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    emptyCart();
+    localStorage.setItem('cart', JSON.stringify(cart));
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Your cart is empty',
+    });
+  }
 };

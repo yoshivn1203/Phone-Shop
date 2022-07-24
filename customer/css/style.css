@@ -442,6 +442,9 @@ footer {
   .card span {
     font-size: 1.1rem;
   }
+  #selectList {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 525.5px) {
@@ -454,7 +457,7 @@ footer {
     padding-left: 0;
   }
 
-  #content .form-select {
+  #selectList {
     width: 100% !important;
   }
 }
