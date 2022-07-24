@@ -181,3 +181,14 @@ window.emptyCart = () => {
   showCartStat(cart);
   renderCart(cart);
 };
+
+window.payNow = () => {
+  Swal.fire({
+    // position: 'top-end',
+    icon: 'success',
+    title: 'Your order is completed',
+    showConfirmButton: false,
+    timer: 1500,
+  });
+  emptyCart();
+};

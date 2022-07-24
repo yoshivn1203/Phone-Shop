@@ -33,13 +33,13 @@ h2 {
   font-family: 'Muli';
   font-size: 14px;
   line-height: 14px;
-  background-color: #404b61;
+  background-color: #294d5c;
   cursor: pointer;
   transition: all 0.15s;
 }
 .btn:hover {
   outline: none;
-  background-color: #535e65;
+  background-color: #5f9db8;
 }
 .btn:focus {
   outline: 0;
@@ -97,6 +97,22 @@ header #navbarColor01 a:hover {
   flex-direction: row-reverse;
   justify-content: space-between;
   margin-top: 24px;
+}
+
+#emptyCart {
+  background-color: #eb5a17;
+}
+
+#emptyCart:hover {
+  background-color: #e27746;
+}
+
+#payNow {
+  background-color: #079b01;
+}
+
+#payNow:hover {
+  background-color: #5dbe5a;
 }
 
 .microcopy {
@@ -385,7 +401,6 @@ img {
 }
 
 .card .btn {
-  background-color: #294d5c;
   font-size: 17px;
   position: absolute;
   top: 100%;
@@ -396,10 +411,6 @@ img {
 
 .card:hover .btn {
   top: 93%;
-}
-
-.card .btn:hover {
-  background-color: #468099;
 }
 
 .card span {
