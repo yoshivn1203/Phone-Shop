@@ -34,16 +34,16 @@
             <li class="nav-item text-center mx-5">
               <a class="nav-link active" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <div>
-                  <i class="fas fa-home fa-lg mb-1"></i>
+                  <i class="fas fa-home fa-xl mb-1"></i>
                 </div>
                 Home
               </a>
             </li>
 
-            <li class="nav-item dropdown text-center">
+            <li class="nav-item text-center">
               <a class="nav-link active" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <div>
-                  <i class="fa-solid fa-lg fa-user-gear"></i>
+                  <i class="fa-solid fa-xl fa-user-gear"></i>
                 </div>
                 Admin Portal
               </a>
@@ -51,11 +51,11 @@
           </ul>
           <ul class="navbar-nav me-auto nav2">
             <li class="nav-item text-center ">
-              <a class="nav-link active js-toggle-cart " href="#" role="button" aria-haspopup="true"
+              <a class="nav-link  js-toggle-cart active"  role="button" aria-haspopup="true"
                 aria-expanded="false">
                 <div>
-                  <i class="fa-solid fa-lg fa-shopping-cart"></i>
-                  <span class="badge rounded-pill badge-notification bg-light text-black"></span>
+                  <i class="fa-solid fa-xl fa-shopping-cart"></i>
+                  <span class="badge rounded-pill badge-notification bg-light text-dark"></span>
                 </div>
                 Cart
               </a>
@@ -92,14 +92,12 @@
           <h2>Shopping Cart</h2>
           <p class="microcopy">An overview of your selected products.</p>
           <div class="products" id = 'cartList'>
-           
-
           </div>
         </div>
         <div class="cart__totals">
           <table class="totals">
             <tbody>
-              <tr>
+              <!-- <tr>
                 <td colspan="2">
                   <div class="collapser">
                     <a href="#" class="collapser__label">Add a coupon code</a>
@@ -122,7 +120,7 @@
                     </div>
                   </div>
                 </td>
-              </tr>
+              </tr> -->
               <tr>
                 <th class="align-left font-normal tertiary">Subtotal</th>
                 <td class="align-right">$2,345.60.00</td>
@@ -148,7 +146,7 @@
           </table>
           <div class="form__footer">
             <button class="btn btn--secondary first js-toggle-cart">Continue Shopping</button> <button
-              class="btn btn--primary">Pay Now</button>
+              class="btn btn-primary">Pay Now</button>
           </div>
         </div>
       </div>
@@ -279,7 +277,6 @@
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./customer/js/lib/cart.js"></script>
-  <script src="./customer/js/lib/counter.js"></script>
   <script type="module" src="./customer/js/main.js"></script>
 </body>
 

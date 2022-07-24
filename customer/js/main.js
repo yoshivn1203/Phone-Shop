@@ -35,7 +35,7 @@ const renderList = (phoneList) => {
         <div class="d-flex justify-content-start pt-1 pb-5">
           <span><b>Description:</b> ${ele.desc}</span>
         </div>
-        <button type="button" class="btn btn-block btn-danger w-100" onclick ="btnAddToCart('${ele.id}')">Add to cart</button>
+        <button type="button" class="btn btn-block w-100" onclick ="btnAddToCart('${ele.id}')">Add to cart</button>
       </div>
     </div>
   </div>`;
