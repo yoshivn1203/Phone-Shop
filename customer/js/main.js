@@ -72,7 +72,7 @@ const renderCart = (cart) => {
     <div class="qty">
       <span><b>Quantity:</b> </span> &nbsp &nbsp
       <span class="minus bg-dark" onclick ="btnMinus('${ele.product.id}')">-</span>
-      <input type="number" class="count" name="qty" value="${ele.quantity}">
+      <span class="quantityResult mx-2">${ele.quantity}</span>
       <span class="plus bg-dark" onclick ="btnAdd('${ele.product.id}')">+</span>
     </div>
     <div class="product__price"><b>$${ele.quantity * ele.product.price}</b></div>
@@ -80,6 +80,14 @@ const renderCart = (cart) => {
 </div>`;
   });
   getEle('cartList').innerHTML = content;
+};
+
+const calculateSubTotal = (cart) => {
+  let subTotal = 0;
+  cart.forEach((ele) => {
+    subTotal += ele.product.price * ele.quantity;
+  });
+  return subTotal;
 };
 
 window.onload = async () => {
@@ -121,6 +129,7 @@ window.btnAddToCart = async (productId) => {
   if (quantity < 1) {
     cart.push(cartItem);
   }
+  getEle('subTotal').innerHTML = '$' + calculateSubTotal(cart);
   renderCart(cart);
 };
 
@@ -131,6 +140,7 @@ window.btnAdd = (id) => {
       return;
     }
   });
+  getEle('subTotal').innerHTML = '$' + calculateSubTotal(cart);
   renderCart(cart);
 };
 
@@ -142,6 +152,7 @@ window.btnMinus = (id) => {
     }
   });
   cart = cart.filter((ele) => ele.quantity != 0);
+  getEle('subTotal').innerHTML = '$' + calculateSubTotal(cart);
   renderCart(cart);
 };
 
