@@ -80,6 +80,7 @@ const renderCart = (cart) => {
 </div>`;
   });
   getEle('cartList').innerHTML = content;
+
   let cartCount = 0;
   cart.forEach((ele) => {
     cartCount += ele.quantity;
@@ -93,12 +94,25 @@ const renderCart = (cart) => {
   getEle('priceTotal').innerHTML = '$' + Math.floor(subTotal * 1.1 + shipping);
 };
 
+// hàm tính tổng tiền trong giỏ hàng
 const calculateSubTotal = (cart) => {
   let subTotal = 0;
   cart.forEach((ele) => {
     subTotal += ele.product.price * ele.quantity;
   });
   return subTotal;
+};
+
+// hàm tìm cart item trong giỏ hàng theo id sản phẩm, trả về cartitem
+const findItemById = (cart, id) => {
+  let item;
+  cart.forEach((ele) => {
+    if (ele.product.id == id) {
+      item = ele;
+      return;
+    }
+  });
+  return item;
 };
 
 window.onload = async () => {
@@ -108,6 +122,7 @@ window.onload = async () => {
   renderCart(cart);
 };
 
+//lọc phone theo hãng
 getEle('selectList').onclick = async () => {
   const data = await getListPhone();
   const selectValue = getEle('selectList').value;
@@ -117,7 +132,6 @@ getEle('selectList').onclick = async () => {
 };
 
 window.btnAddToCart = async (productId) => {
-  let quantity = 0;
   const res = await service.getPhoneById(productId);
   const { id, name, price, screen, backCamera, frontCamera, img, desc, type } = res.data;
   const product = new Product(
@@ -131,56 +145,45 @@ window.btnAddToCart = async (productId) => {
     desc,
     type
   );
-  const cartItem = new CartItem(product, 1);
-  cart.forEach((ele) => {
-    if (ele.product.id == cartItem.product.id) {
-      ele.quantity++;
-      quantity = ele.quantity;
-      return;
-    }
-  });
-  if (quantity < 1) {
-    cart.push(cartItem);
-  }
+  const newCartItem = new CartItem(product, 1);
+  let cartItem = findItemById(cart, newCartItem.product.id);
+  !cartItem ? cart.push(newCartItem) : cartItem.quantity++;
   renderCart(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
 };
 
+// dấu cộng trong giỏ hàng
 window.btnAdd = (id) => {
-  cart.forEach((ele) => {
-    if (ele.product.id == id) {
-      ele.quantity++;
-      return;
-    }
-  });
+  let cartItem = findItemById(cart, id);
+  if (cartItem) cartItem.quantity++;
   renderCart(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
 };
 
+// dấu trừ trong giỏ hàng
 window.btnMinus = (id) => {
-  cart.forEach((ele) => {
-    if (ele.product.id == id) {
-      ele.quantity--;
-      return;
-    }
-  });
+  let cartItem = findItemById(cart, id);
+  if (cartItem) cartItem.quantity--;
   cart = cart.filter((ele) => ele.quantity != 0);
   renderCart(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
 };
 
+// xóa sản phẩm khỏi giỏ hàng
 window.btnRemove = (id) => {
   cart = cart.filter((ele) => ele.product.id != id);
   renderCart(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
 };
 
+// clear giỏ hàng
 window.emptyCart = () => {
   cart = [];
   renderCart(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
 };
 
+//Nút thanh toán
 window.payNow = () => {
   if (cart.length > 0) {
     Swal.fire({
