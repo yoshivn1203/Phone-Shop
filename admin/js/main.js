@@ -1,18 +1,15 @@
 const getEle = (id) => document.getElementById(id);
 
+import { Helper } from './services/helper.js';
 import { Services } from './services/phoneService.js';
+import { Phone } from './model/phone.js';
 
+const helper = new Helper();
 const service = new Services();
 
 const getListPhone = async () => {
   const res = await service.getPhones();
   return res.data;
-};
-
-window.onload = async () => {
-  const phoneList = await getListPhone();
-  console.log(phoneList);
-  renderList(phoneList);
 };
 
 const renderList = (phoneList) => {
@@ -33,4 +30,22 @@ const renderList = (phoneList) => {
     </tr>`;
   });
   getEle('tablePhone').innerHTML = content;
+};
+
+window.onload = async () => {
+  const phoneList = await getListPhone();
+  renderList(phoneList);
+};
+
+getEle('btnAddPhone').onclick = async () => {
+  const inputs = helper.getInputValue();
+  let phone = new Phone('', ...inputs);
+  await service.addPhone(phone);
+  const phoneList = await getListPhone();
+  renderList(phoneList);
+};
+
+window.btnEdit = async (id) => {
+  let res = await service.getPhoneById(id);
+  console.log(res.data);
 };

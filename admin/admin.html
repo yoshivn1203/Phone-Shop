@@ -98,23 +98,7 @@
             <!-- Modal body -->
             <div class="modal-body">
               <form role="form" id="formNV">
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><b>#</b></span>
-                    </div>
-                    <input
-                      type="text"
-                      name="tk"
-                      id="phoneID"
-                      class="form-control input-sm"
-                      placeholder="Phone ID"
-                    />
-                  </div>
-  
-                  <span class="sp-thongbao" id="tbphoneID"></span>
-                </div>
-  
+              
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -122,7 +106,7 @@
                         ><i class="fa-solid fa-mobile-screen-button"></i></span>
                     </div>
                     <input
-                      type="name"
+                      type="text"
                       name="name"
                       id="name"
                       class="form-control input-sm"
@@ -130,6 +114,22 @@
                     />
                   </div>
                   <span class="sp-thongbao" id="tbname"></span>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="fa-regular fa-dollar-sign"></i></span>
+                    </div>
+                    <input
+                      type="text"
+                      name="name"
+                      id="price"
+                      class="form-control input-sm"
+                      placeholder="Price"
+                    />
+                  </div>
+                  <span class="sp-thongbao" id="tbprice"></span>
                 </div>
   
                 <div class="form-group">
@@ -157,13 +157,13 @@
                     <input
                       type="text"
                       name="name"
-                      id="backCamera"
+                      id="backCam"
                       class="form-control"
                       placeholder="Back Camera"
                     />
                   </div>
   
-                  <span class="sp-thongbao" id="tbbackCamera"></span>
+                  <span class="sp-thongbao" id="tbbackCam"></span>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
@@ -173,13 +173,13 @@
                     <input
                       type="text"
                       name="name"
-                      id="frontCamera"
+                      id="frontCam"
                       class="form-control"
                       placeholder="Front Camera"
                     />
                   </div>
   
-                  <span class="sp-thongbao" id="tbfrontCamera"></span>
+                  <span class="sp-thongbao" id="tbfrontCam"></span>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
@@ -189,13 +189,13 @@
                     <input
                       type="text"
                       name="name"
-                      id="photo"
+                      id="img"
                       class="form-control"
                       placeholder="Image link"
                     />
                   </div>
   
-                  <span class="sp-thongbao" id="tbphoto"></span>
+                  <span class="sp-thongbao" id="tbimg"></span>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
@@ -220,14 +220,14 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa-solid fa-signature"></i></span>
                     </div>
-                    <select class="form-control" name="chucvu" id="brand">
+                    <select class="form-control" name="chucvu" id="type">
                       <option>Select brand</option>
                       <option>iphone</option>
                       <option>samsung</option>
                     </select>
                   </div>
   
-                  <span class="sp-thongbao" id="tbbrand"></span>
+                  <span class="sp-thongbao" id="tbtype"></span>
                 </div>
             
               </form>
@@ -235,7 +235,7 @@
   
             <!-- Modal footer -->
             <div class="modal-footer" id="modal-footer">
-              <button type="button" class="btn" id="btnThemNV">
+              <button type="button" class="btn" id="btnAddPhone">
                 Add Phone
               </button>
               <button id="btnCapNhat" type="button" class="btn">

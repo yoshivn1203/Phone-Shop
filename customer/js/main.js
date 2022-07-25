@@ -118,7 +118,7 @@ const findItemById = (cart, id) => {
 window.onload = async () => {
   const phoneList = await getListPhone();
   renderList(phoneList);
-  cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : cart;
+  cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
   renderCart(cart);
 };
 
