@@ -15,7 +15,7 @@ const getListPhone = async () => {
 const renderList = (phoneList) => {
   let content = '';
   phoneList.forEach((ele) => {
-    content += ` <div class="col-lg-4 col-md-6">
+    content += ` <div class="col-lg-3 col-md-6">
     <div class="card text-black h-100">
       <img src=${ele.img} class="card-img" alt="Phone Image" />
       <div class="card-body">
