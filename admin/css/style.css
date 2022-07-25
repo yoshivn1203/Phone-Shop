@@ -21,6 +21,10 @@ h2 {
   margin: 0;
 }
 
+strong {
+  font-weight: 600;
+}
+
 .btn {
   border: 0;
   color: rgba(255, 255, 255, 0.85);

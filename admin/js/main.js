@@ -20,7 +20,7 @@ const renderList = (phoneList) => {
   phoneList.forEach((ele) => {
     content += ` <tr>
     <td>${ele.id}</td>
-    <td>${ele.name}</td>
+    <td><strong>${ele.name}</strong></td>
     <td>$${ele.price}</td>
     <td style="text-align: center"><img src=${ele.img} alt="phone-img" width="150" height="150"></td>
     <td>${ele.desc}</td>
