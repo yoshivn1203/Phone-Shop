@@ -54,53 +54,45 @@
   </header>
 
   <div class="container py-5" id="content-wrap">
-    <main role="main" class="py-5">
-      <div class="text-right mb-5">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Add Phone
-        </button>
+    <main role="main" class="mt-5">
+      <div class ='d-flex justify-content-between mb-3 p-2 phoneBanner'>
+        <h3 class="text-light">Phone Management</h3>
+        <div class="text-right">
+          <button type="button" class="btn btn-banner" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-circle-plus me-2"></i> Add Phone
+          </button>
+        </div>
       </div>
+     
       <div class=" table-responsive">
-      <table class="table table-bordered table-hover myTable ">
+      <table class="table myTable ">
         <thead class="">
           <tr>
            
-            <th>ID</th>
+            <th>#</th>
             <th>Name</th>
             <th>Price</th>
             <th>Photo</th>
             <th>Discription</th>
-            <th><em class="fa fa-cog"></em> Task</th>
+            <th><em class="fa fa-cog"></em> Action</th>
           </tr>
         </thead>
-        <tbody id="tableDanhSach">
+        <tbody id="tablePhone">
 
           <tr>
             <td>1</td>
             <td>iPhone 13 Pro 128GB</td>
             <td>$1199</td>
-            <td class ='w-25'style="text-align: center"><img src="https://cdn.tgdd.vn/Products/Images/42/230521/iphone-13-pro-sierra-blue-600x600.jpg" alt="phone-img" width="150" height="150"></td>
+            <td style="text-align: center"><img src="https://cdn.tgdd.vn/Products/Images/42/230521/iphone-13-pro-sierra-blue-600x600.jpg" alt="phone-img" width="150" height="150"></td>
             <td>Morden Design and future proof technology...</td>
-            <td class = ''style="text-align: center"><button class="btn btn-success my-3 me-1" data-bs-toggle="modal"
-            data-bs-target="#exampleModal" onclick ="btnEditNv('${nv.tk}')">
+            <td class = ''style="text-align: center"><button class="btn my-3 me-1" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" onclick ="btnEdit('${nv.tk}')"  id='btnEdit'>
             Edit<i class="fa fa-pencil-square ms-2"></i>
-            </button><button class="btn btn-danger " onclick ="btnDeleteNv('${nv.tk}')">
+            </button><button class="btn " onclick ="btnDelete('${nv.tk}')" id='btnDelete'>
             Delete <i class="fa fa-trash ms-2"></i>
             </button></td>
             </tr>
-          <tr>
-            <td>1</td>
-            <td>iPhone 13 Pro 128GB</td>
-            <td>$1199</td>
-            <td class ='w-25'style="text-align: center"><img src="https://cdn.tgdd.vn/Products/Images/42/236780/iphone-13-mini-midnight-1-600x600.jpg" alt="phone-img" width="150" height="150"></td>
-            <td>Morden Design and future proof technology...</td>
-            <td class = ''style="text-align: center"><button class="btn btn-success my-3 me-1" data-bs-toggle="modal"
-            data-bs-target="#exampleModal" onclick ="btnEditNv('${nv.tk}')">
-            Edit<i class="fa fa-pencil-square ms-2"></i>
-            </button><button class="btn btn-danger " onclick ="btnDeleteNv('${nv.tk}')">
-            Delete <i class="fa fa-trash ms-2"></i>
-            </button></td>
-            </tr>
+         
         </tbody>
       </table>
     </div>
@@ -109,7 +101,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <header class="head-form mb-0">
-              <h2 id="header-title">Log In</h2>
+              <h3 id="header-title">Phone Management</h3>
             </header>
   
             <!-- Modal Header -->
@@ -124,87 +116,133 @@
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fa fa-user"></i></span>
+                      <span class="input-group-text"><b>#</b></span>
                     </div>
                     <input
                       type="text"
                       name="tk"
-                      id="tknv"
+                      id="phoneID"
                       class="form-control input-sm"
-                      placeholder="Tài khoản"
+                      placeholder="Phone ID"
                     />
                   </div>
   
-                  <span class="sp-thongbao" id="tbTKNV">111111</span>
+                  <span class="sp-thongbao" id="tbphoneID"></span>
                 </div>
   
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"
-                        ><i class="fa fa-address-book"></i
-                      ></span>
+                        ><i class="fa-solid fa-mobile-screen-button"></i></span>
                     </div>
                     <input
                       type="name"
                       name="name"
                       id="name"
                       class="form-control input-sm"
-                      placeholder="Họ và tên"
+                      placeholder="Phone name"
                     />
                   </div>
-                  <span class="sp-thongbao" id="tbTen"></span>
+                  <span class="sp-thongbao" id="tbname"></span>
                 </div>
   
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                    </div>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      class="form-control input-sm"
-                      placeholder="Email"
-                    />
-                  </div>
-  
-                  <span class="sp-thongbao" id="tbEmail"></span>
-                </div>
-  
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                      <span class="input-group-text"><i class="fa-solid fa-mobile-screen"></i></span>
                     </div>
                     <input
                       type="text"
-                      name="ngaylam"
-                      id="datepicker"
-                      class="form-control"
-                      placeholder="Ngày làm"
+                      name="email"
+                      id="screen"
+                      class="form-control input-sm"
+                      placeholder="Screen"
                     />
                   </div>
   
-                  <span class="sp-thongbao" id="tbNgay"></span>
+                  <span class="sp-thongbao" id="tbscreen"></span>
+                </div>
+  
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa-solid fa-camera"></i></span>
+                    </div>
+                    <input
+                      type="text"
+                      name="name"
+                      id="backCamera"
+                      class="form-control"
+                      placeholder="Back Camera"
+                    />
+                  </div>
+  
+                  <span class="sp-thongbao" id="tbbackCamera"></span>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa-solid fa-camera"></i></i></span>
+                    </div>
+                    <input
+                      type="text"
+                      name="name"
+                      id="frontCamera"
+                      class="form-control"
+                      placeholder="Front Camera"
+                    />
+                  </div>
+  
+                  <span class="sp-thongbao" id="tbfrontCamera"></span>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa-solid fa-link"></i></i></span>
+                    </div>
+                    <input
+                      type="text"
+                      name="name"
+                      id="photo"
+                      class="form-control"
+                      placeholder="Image link"
+                    />
+                  </div>
+  
+                  <span class="sp-thongbao" id="tbphoto"></span>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa-solid fa-comment"></i></span>
+                    </div>
+                    <input
+                      type="text"
+                      name="name"
+                      id="desc"
+                      class="form-control"
+                      placeholder="Description"
+                    />
+                  </div>
+  
+                  <span class="sp-thongbao" id="tbdesc"></span>
                 </div>
   
              
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                      <span class="input-group-text"><i class="fa-solid fa-signature"></i></span>
                     </div>
-                    <select class="form-control" name="chucvu" id="chucvu">
-                      <option>Chọn chức vụ</option>
-                      <option>Sếp</option>
-                      <option>Trưởng phòng</option>
-                      <option>Nhân viên</option>
+                    <select class="form-control" name="chucvu" id="brand">
+                      <option>Select brand</option>
+                      <option>iphone</option>
+                      <option>samsung</option>
                     </select>
                   </div>
   
-                  <span class="sp-thongbao" id="tbChucVu"></span>
+                  <span class="sp-thongbao" id="tbbrand"></span>
                 </div>
             
               </form>
@@ -212,11 +250,11 @@
   
             <!-- Modal footer -->
             <div class="modal-footer" id="modal-footer">
-              <button type="button" class="btn btn-success" id="btnThemNV">
-                Thêm người dùng
+              <button type="button" class="btn" id="btnThemNV">
+                Add Phone
               </button>
-              <button id="btnCapNhat" type="button" class="btn btn-success">
-                Cập nhật
+              <button id="btnCapNhat" type="button" class="btn">
+                Update Phone
               </button>
               <button
                 id="btnDong"
@@ -224,7 +262,7 @@
                 class="btn btn-danger"
                 data-bs-dismiss="modal"
               >
-                Đóng
+                Close
               </button>
             </div>
           </div>
@@ -360,6 +398,8 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="./js/main.js"></script>
+
 
 </body>
 

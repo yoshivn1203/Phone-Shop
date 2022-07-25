@@ -16,9 +16,9 @@
   height: auto;
   border-radius: 5px;
   margin: 2% auto;
-  box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+  box-shadow: 0 9px 50px hsla(20, 83%, 68%, 0.31);
   padding: 2%;
-  background-image: linear-gradient(-225deg, #e3fdf5 50%, #ffe6fa 50%);
+  background-image: linear-gradient(250deg, #e3ecfd, #fff0e8);
 }
 /* .modal-content {
   background-image: ;
@@ -30,9 +30,10 @@
   text-align: center;
 } */
 /* Login title form form */
-header h2 {
+header h3 {
+  padding-top: 15px;
   text-align: center;
-  font-size: 250%;
+  font-size: 210%;
   font-family: 'Playfair Display', serif;
   color: #3e403f;
 }

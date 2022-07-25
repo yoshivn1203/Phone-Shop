@@ -21,20 +21,10 @@ h2 {
   margin: 0;
 }
 
-/* .btn {
-  position: relative;
+.btn {
   border: 0;
-  padding: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
   color: rgba(255, 255, 255, 0.85);
-  font-family: 'Muli';
-  font-size: 14px;
-  line-height: 14px;
   background-color: #294d5c;
-  cursor: pointer;
   transition: all 0.15s;
 }
 .btn:hover {
@@ -48,12 +38,33 @@ h2 {
 }
 .btn:active {
   transform: scale(0.95);
+  background-color: #294d5c;
 }
 
-.btn + .btn {
-  margin-left: 8px;
-} */
+.btn-banner:hover {
+  background-color: #ffffff;
+}
+#btnDelete {
+  background-color: #eb4117;
+}
 
+#btnDelete:hover {
+  background-color: #e96949;
+}
+
+#btnEdit {
+  background-color: #079b01;
+}
+
+#btnEdit:hover {
+  background-color: #5dbe5a;
+}
+
+main {
+  background-color: #f9f9f9;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 .main-color {
   background: #2c5364;
 }
@@ -85,6 +96,13 @@ header #navbarColor01 a:hover {
   display: flex;
   justify-content: flex-end;
   width: 45%;
+}
+
+.phoneBanner {
+  background-color: #5493e6;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  align-items: center;
 }
 
 footer {
