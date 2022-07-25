@@ -21,7 +21,7 @@ const renderList = (phoneList) => {
       <div class="card-body">
         <div class="text-center">
           <h5 class="card-title">${ele.name}</h5>
-          <p class="text-muted mb-4">$${ele.price}</p>
+          <p class="text-muted mb-2">$${ele.price}</p>
         </div>
         <div class="d-flex justify-content-start pt-3">
           <span><b>Screen:</b> ${ele.screen}</span>
@@ -32,7 +32,7 @@ const renderList = (phoneList) => {
         <div class="d-flex justify-content-start pt-1">
           <span><b>Front Camera:</b> ${ele.frontCamera}</span>
         </div>
-        <div class="d-flex justify-content-start pt-1 pb-5">
+        <div class="d-flex justify-content-start pt-1 mb-2">
           <span><b>Description:</b> ${ele.desc}</span>
         </div>
         <button type="button" class="btn btn-block w-100" onclick ="btnAddToCart('${ele.id}')">Add to cart</button>

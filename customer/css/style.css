@@ -30,7 +30,7 @@ h2 {
   align-items: center;
   border-radius: 3px;
   color: rgba(255, 255, 255, 0.85);
-  font-family: 'Muli';
+  font-family: "Muli";
   font-size: 14px;
   line-height: 14px;
   background-color: #294d5c;
@@ -160,7 +160,7 @@ small {
 .meh {
   position: relative;
   color: #405461;
-  font-family: 'Muli';
+  font-family: "Muli";
 }
 
 .cart__overlay {
@@ -416,16 +416,20 @@ span {
 }
 
 .card:hover .btn {
-  top: 93%;
+  top: 91%;
 }
 
 .card span {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .card b {
   font-weight: 600;
+}
+
+.card h5 {
+  font-size: 16px;
 }
 
 /* //PRODUCT CARD */
