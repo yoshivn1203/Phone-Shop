@@ -1,8 +1,8 @@
 const getEle = (id) => document.getElementById(id);
 
-import { Helper } from './services/helper.js';
-import { Services } from './services/phoneService.js';
-import { Phone } from './model/phone.js';
+import { Helper } from './helper.js';
+import { Services } from './phoneService.js';
+import { Phone } from '../model/phone.js';
 
 const helper = new Helper();
 const service = new Services();
@@ -39,24 +39,27 @@ getEle('btnAddPhone').onclick = async () => {
   const inputs = helper.getInputValue();
   let phone = new Phone('', ...inputs);
   await service.addPhone(phone);
-  renderList(phoneList);
+  renderList();
 };
 
 window.btnDelete = async (id) => {
   await service.deletePhone(id);
-  renderList(phoneList);
+  renderList();
 };
 
 window.btnEdit = async (id) => {
   let res = await service.getPhoneById(id);
   let arrObjValue = Object.keys(res.data).map((k) => res.data[k]);
-  arrObjValue.shift(); // Remove id from array
-  helper.fill(arrObjValue);
+  console.log(arrObjValue);
+
+  arrObjValue.pop(); // Remove id from array
+  console.log(arrObjValue);
+  helper.fill(arrObjValue); // fill the form with values
 
   getEle('btnUpdate').onclick = async () => {
     const inputs = helper.getInputValue();
     let phone = new Phone(id, ...inputs);
     await service.updatePhone(phone);
-    renderList(phoneList);
+    renderList();
   };
 };
