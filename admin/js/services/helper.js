@@ -18,6 +18,12 @@ export class Helper {
   getInputValue() {
     return this.inpArr.map((ele) => getEle(ele).value);
   }
+  fill(arr) {
+    let fields = this.inpArr.map((ele) => getEle(ele));
+    fields.forEach((ele, id) => {
+      ele.value = arr[id];
+    });
+  }
   prefill() {
     let fields = this.getInputEle();
     fields.forEach((ele, id) => {

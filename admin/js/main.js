@@ -12,7 +12,8 @@ const getListPhone = async () => {
   return res.data;
 };
 
-const renderList = (phoneList) => {
+const renderList = async () => {
+  const phoneList = await getListPhone();
   let content = '';
   phoneList.forEach((ele) => {
     content += ` <tr>
@@ -32,20 +33,30 @@ const renderList = (phoneList) => {
   getEle('tablePhone').innerHTML = content;
 };
 
-window.onload = async () => {
-  const phoneList = await getListPhone();
-  renderList(phoneList);
-};
+window.onload = async () => renderList();
 
 getEle('btnAddPhone').onclick = async () => {
   const inputs = helper.getInputValue();
   let phone = new Phone('', ...inputs);
   await service.addPhone(phone);
-  const phoneList = await getListPhone();
+  renderList(phoneList);
+};
+
+window.btnDelete = async (id) => {
+  await service.deletePhone(id);
   renderList(phoneList);
 };
 
 window.btnEdit = async (id) => {
   let res = await service.getPhoneById(id);
-  console.log(res.data);
+  let arrObjValue = Object.keys(res.data).map((k) => res.data[k]);
+  arrObjValue.shift(); // Remove id from array
+  helper.fill(arrObjValue);
+
+  getEle('btnUpdate').onclick = async () => {
+    const inputs = helper.getInputValue();
+    let phone = new Phone(id, ...inputs);
+    await service.updatePhone(phone);
+    renderList(phoneList);
+  };
 };

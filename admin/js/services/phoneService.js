@@ -13,7 +13,7 @@ export class Services {
       data: phone,
     });
   }
-  removePhone(id) {
+  deletePhone(id) {
     return axios({
       url: `https://62dabe8ee56f6d82a768e4fc.mockapi.io/Phones/${id}`,
       method: 'DELETE',
