@@ -30,7 +30,7 @@ h2 {
   align-items: center;
   border-radius: 3px;
   color: rgba(255, 255, 255, 0.85);
-  font-family: "Muli";
+  font-family: 'Muli';
   font-size: 14px;
   line-height: 14px;
   background-color: #294d5c;
@@ -100,19 +100,19 @@ header #navbarColor01 a:hover {
 }
 
 #emptyCart {
-  background-color: #eb5a17;
+  background-color: #e7380c;
 }
 
 #emptyCart:hover {
-  background-color: #e27746;
+  background-color: #e96949;
 }
 
 #payNow {
-  background-color: #079b01;
+  background-color: #f0b80f;
 }
 
 #payNow:hover {
-  background-color: #5dbe5a;
+  background-color: #f1ca55;
 }
 
 .microcopy {
@@ -160,7 +160,7 @@ small {
 .meh {
   position: relative;
   color: #405461;
-  font-family: "Muli";
+  font-family: 'Muli';
 }
 
 .cart__overlay {

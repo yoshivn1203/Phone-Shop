@@ -49,19 +49,23 @@ strong {
   background-color: #ffffff;
 }
 #btnDelete {
-  background-color: #eb4117;
+  background-color: #e7380c;
 }
 
 #btnDelete:hover {
   background-color: #e96949;
 }
 
-#btnEdit {
-  background-color: #079b01;
+#btnEdit,
+#btnAddPhone,
+#btnUpdate {
+  background-color: #f0b80f;
 }
 
-#btnEdit:hover {
-  background-color: #5dbe5a;
+#btnEdit:hover,
+#btnAddPhone:hover,
+#btnUpdate:hover {
+  background-color: #f1ca55;
 }
 
 main {
