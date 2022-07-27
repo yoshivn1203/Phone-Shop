@@ -17,7 +17,12 @@ const renderList = (phoneList) => {
   phoneList.forEach((ele) => {
     content += ` <div class="col-lg-3 col-md-6">
     <div class="card text-black h-100">
+    <div class="content-overlay"></div>
       <img src=${ele.img} class="card-img" alt="Phone Image" />
+      <div class="content-details fadeIn-top">
+            <h3>Order Now</h3>
+            <p>To get 20% discount</p>
+      </div>
       <div class="card-body">
         <div class="text-center">
           <h5 class="card-title">${ele.name}</h5>

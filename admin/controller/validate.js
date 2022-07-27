@@ -9,7 +9,7 @@ export class Validate {
       getEle(idTB).innerHTML = message;
       return false;
     } else if (isFalse == true) {
-      getEle(idTB).innerHTML = '&#8205'; //invisable (to keep distance between forms unchanged)
+      getEle(idTB).innerHTML = '&#8205'; //invisible (to keep distance between forms unchanged)
       return true;
     }
   };
