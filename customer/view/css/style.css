@@ -472,12 +472,16 @@ span {
 
 .card .btn {
   font-size: 17px;
+  border-radius: 20px;
   position: absolute;
   top: 100%;
-  left: 0;
-  transition: 0.5s;
+  left: 25%;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
   z-index: 1;
   background-color: #daa300;
+  opacity: 0;
 }
 
 .card .btn:hover {
@@ -485,7 +489,8 @@ span {
 }
 
 .card:hover .btn {
-  top: 91%;
+  top: 65%;
+  opacity: 1;
 }
 
 .card span {
