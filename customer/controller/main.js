@@ -21,7 +21,8 @@ const renderList = (phoneList) => {
       <div class="card-body">
         <div class="text-center">
           <h5 class="card-title">${ele.name}</h5>
-          <p class="text-muted mb-2">$${ele.price}</p>
+          <span class="text-muted mb-2">$${ele.price}</span>
+          <span class="text-danger"><s>$${Number(ele.price) + 300}</s></span>
         </div>
         <div class="d-flex justify-content-start pt-3">
           <span><b>Screen:</b> ${ele.screen}</span>
@@ -35,7 +36,9 @@ const renderList = (phoneList) => {
         <div class="d-flex justify-content-start pt-1 mb-2">
           <span><b>Description:</b> ${ele.desc}</span>
         </div>
-        <button type="button" class="btn btn-block w-100" onclick ="btnAddToCart('${ele.id}')">Add to cart</button>
+        <button type="button" class="btn btn-block w-100" onclick ="btnAddToCart('${
+          ele.id
+        }')">Add to cart</button>
       </div>
     </div>
   </div>`;

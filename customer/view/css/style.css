@@ -11,6 +11,7 @@ html {
 body {
   padding-top: 70px;
   margin-bottom: 0px;
+  background-color: rgba(241, 241, 241, 0.2);
 }
 
 p {
@@ -389,7 +390,7 @@ span {
   overflow: hidden;
 }
 .card:hover {
-  box-shadow: 2px 2px 15px #318c92e5;
+  box-shadow: 2px 2px 30px #318c92e5;
   transform: scale(1.1);
 }
 
@@ -429,6 +430,10 @@ span {
 }
 
 .card h5 {
+  font-size: 16px;
+}
+
+.card .text-muted {
   font-size: 16px;
 }
 

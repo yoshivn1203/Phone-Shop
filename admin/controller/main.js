@@ -1,11 +1,14 @@
 const getEle = (id) => document.getElementById(id);
+const resetForm = (formId) => getEle(formId).reset();
 
-import { Helper } from './helper.js';
+import { CustomModal, Helper } from './utis.js';
 import { Services } from './phoneService.js';
+import { Validate } from './validate.js';
 import { Phone } from '../model/phone.js';
 
 const helper = new Helper();
 const service = new Services();
+const validate = new Validate();
 
 const getListPhone = async () => {
   const res = await service.getPhones();
@@ -35,31 +38,53 @@ const renderList = async () => {
 
 window.onload = async () => renderList();
 
+getEle('addPhoneForm').onclick = () => {
+  helper.clearTB();
+  getEle('btnUpdate').style.display = 'none';
+  getEle('btnAddPhone').style.display = 'inline-block';
+};
+
 getEle('btnAddPhone').onclick = async () => {
+  const phoneList = await getListPhone();
+  if (!validate.isValid(phoneList)) return;
+
   const inputs = helper.getInputValue();
   let phone = new Phone('', ...inputs);
   await service.addPhone(phone);
   renderList();
+  resetForm('formPhone');
+  CustomModal.alertSuccess('Add phone successfully');
 };
 
 window.btnDelete = async (id) => {
-  await service.deletePhone(id);
-  renderList();
+  let res = await CustomModal.alertDelete(
+    `This phone will be deleted, you can't undo this action`
+  );
+  if (res.isConfirmed) {
+    await service.deletePhone(id);
+    renderList();
+    CustomModal.alertSuccess(`Delete phone successfully`);
+  }
 };
 
 window.btnEdit = async (id) => {
+  helper.clearTB();
+  getEle('btnUpdate').style.display = 'inline-block';
+  getEle('btnAddPhone').style.display = 'none';
+
   let res = await service.getPhoneById(id);
   let arrObjValue = Object.keys(res.data).map((k) => res.data[k]);
-  console.log(arrObjValue);
-
   arrObjValue.pop(); // Remove id from array
-  console.log(arrObjValue);
   helper.fill(arrObjValue); // fill the form with values
 
   getEle('btnUpdate').onclick = async () => {
+    const phoneList = await getListPhone();
+    if (!validate.isValid(phoneList, true)) return;
+
     const inputs = helper.getInputValue();
     let phone = new Phone(id, ...inputs);
     await service.updatePhone(phone);
     renderList();
+    CustomModal.alertSuccess('Update phone successfully');
   };
 };
