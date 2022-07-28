@@ -438,7 +438,7 @@ span {
 }
 
 .card:hover .content-details {
-  top: 50%;
+  top: 40%;
   left: 50%;
   opacity: 1;
 }
@@ -451,7 +451,6 @@ span {
   font-size: 1.5em;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* text-transform: uppercase; */
 }
 
 .content-details p {
@@ -471,7 +470,7 @@ span {
 .card-img {
   padding-top: 10px;
   width: inherit;
-  height: 180px;
+  height: 250px;
   object-fit: contain;
   display: block;
 }
@@ -495,7 +494,7 @@ span {
 }
 
 .card:hover .btn {
-  top: 65%;
+  top: 85%;
   opacity: 1;
 }
 
@@ -516,6 +515,14 @@ span {
   font-size: 16px;
 }
 
+.brand-box {
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #eaeaea;
+  padding: 0 5px;
+}
 /* //PRODUCT CARD */
 
 footer {
