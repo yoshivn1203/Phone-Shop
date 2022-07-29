@@ -470,7 +470,7 @@ span {
 .card-img {
   padding-top: 10px;
   width: inherit;
-  height: 250px;
+  height: 200px;
   object-fit: contain;
   display: block;
 }

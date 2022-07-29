@@ -1,1 +1,68 @@
-[{"name":"iPhone 13 Pro 128GB ","price":"1140","screen":"OLED, 6.1'', Super Retina XDR","backCamera":"12 MP x 3","frontCamera":"12 MP","img":"https://cdn.tgdd.vn/Products/Images/42/230521/iphone-13-pro-sierra-blue-600x600.jpg","desc":"Mordern Design and future proof technology...","type":"iphone","id":"1"},{"name":"Samsung Galaxy S22 256GB","price":"1325","screen":"AMOLED, 2 X 6.8'', 2K+","backCamera":"Main 108 MP & 12 MP x 3","frontCamera":"40 MP","img":"https://cdn.tgdd.vn/Products/Images/42/271697/Galaxy-S22-Ultra-Green-600x600.jpg","desc":"Mordern Design and future proof technology...","type":"samsung","id":"2"},{"name":"iPhone 12 mini 256GB","price":"725","screen":"OLED, 5.4'', Super Retina XDR","backCamera":"12 MP x 2","frontCamera":"12 MP","img":"https://cdn.tgdd.vn/Products/Images/42/236780/iphone-13-mini-midnight-1-600x600.jpg","desc":"Mordern Design and future proof technology...","type":"iphone","id":"3"},{"name":"Samsung Galaxy Z Fold3 5G 512GB","price":"1539","screen":"Dynamic AMOLED, 2 X Main 7.6'' & 6.2'' Full HD+","backCamera":"12 MP x 3","frontCamera":"10 MP & 4 MP","img":"https://cdn.tgdd.vn/Products/Images/42/248284/samsung-galaxy-z-fold-3-green-1-600x600.jpg","desc":"Mordern Design and future proof technology...","type":"samsung","id":"4"},{"name":"iPhone SE 64GB (2022) ","price":"569","screen":"IPS LCD, 4.7\", Retina HD","backCamera":"12 MP","frontCamera":"7 MP","img":"https://cdn.tgdd.vn/Products/Images/42/244141/iphone-se-white-600x600.jpg","desc":"Mordern Design and future proof technology...","type":"iphone","id":"5"},{"name":"Samsung Galaxy A13 4GB","price":"199","screen":"PLS TFT LCD, 6.6\", Full HD+","backCamera":"Main 50 MP & 5 MP, 2 MP, 2 MP","frontCamera":"8 MP","img":"https://cdn.tgdd.vn/Products/Images/42/262402/Samsung-Galaxy-A13-cam-thumb-600x600.jpg","desc":"Mordern Design and future proof technology...","type":"samsung","id":"6"}]
+[
+ {
+  "name": "iPhone 13 Pro 128GB ",
+  "price": "1140",
+  "screen": "OLED, 6.1'', Super Retina XDR",
+  "backCamera": "12 MP x 3",
+  "frontCamera": "12 MP",
+  "img": "https://cdn.tgdd.vn/Products/Images/42/230521/iphone-13-pro-sierra-blue-600x600.jpg",
+  "desc": "Mordern Design and future proof technology...",
+  "type": "Apple",
+  "id": "1"
+ },
+ {
+  "name": "Samsung Galaxy S22 256GB",
+  "price": "1325",
+  "screen": "AMOLED, 2 X 6.8'', 2K+",
+  "backCamera": "Main 108 MP & 12 MP x 3",
+  "frontCamera": "40 MP",
+  "img": "https://cdn.tgdd.vn/Products/Images/42/271697/Galaxy-S22-Ultra-Green-600x600.jpg",
+  "desc": "Mordern Design and future proof technology...",
+  "type": "Samsung",
+  "id": "2"
+ },
+ {
+  "name": "iPhone 12 mini 256GB",
+  "price": "725",
+  "screen": "OLED, 5.4'', Super Retina XDR",
+  "backCamera": "12 MP x 2",
+  "frontCamera": "12 MP",
+  "img": "https://cdn.tgdd.vn/Products/Images/42/236780/iphone-13-mini-midnight-1-600x600.jpg",
+  "desc": "Mordern Design and future proof technology...",
+  "type": "Apple",
+  "id": "3"
+ },
+ {
+  "name": "Samsung Galaxy Z Fold3 5G 512GB",
+  "price": "1539",
+  "screen": "AMOLED, 2 X 7.6'' Full HD+",
+  "backCamera": "12 MP x 3",
+  "frontCamera": "10 MP & 4 MP",
+  "img": "https://cdn.tgdd.vn/Products/Images/42/248284/samsung-galaxy-z-fold-3-green-1-600x600.jpg",
+  "desc": "Mordern Design and future proof technology...",
+  "type": "Samsung",
+  "id": "4"
+ },
+ {
+  "name": "iPhone SE 64GB (2022) ",
+  "price": "569",
+  "screen": "IPS LCD, 4.7\", Retina HD",
+  "backCamera": "12 MP",
+  "frontCamera": "7 MP",
+  "img": "https://cdn.tgdd.vn/Products/Images/42/244141/iphone-se-white-600x600.jpg",
+  "desc": "Mordern Design and future proof technology...",
+  "type": "Apple",
+  "id": "5"
+ },
+ {
+  "name": "Samsung Galaxy A13 4GB",
+  "price": "199",
+  "screen": "PLS TFT LCD, 6.6\", Full HD+",
+  "backCamera": "Main 50 MP & 5 MP x 3",
+  "frontCamera": "8 MP",
+  "img": "https://cdn.tgdd.vn/Products/Images/42/262402/Samsung-Galaxy-A13-cam-thumb-600x600.jpg",
+  "desc": "Mordern Design and future proof technology...",
+  "type": "Samsung",
+  "id": "6"
+ }
+]
