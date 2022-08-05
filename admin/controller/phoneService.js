@@ -1,5 +1,4 @@
 export class Services {
-  arr = [];
   getPhones() {
     return axios({
       url: 'https://62dabe8ee56f6d82a768e4fc.mockapi.io/Phones',

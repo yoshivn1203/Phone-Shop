@@ -1,16 +1,11 @@
 const getEle = (id) => document.getElementById(id);
 
-import { Service } from './phoneService.js';
+import { Service } from '../services/phoneService.js';
 import { CartItem } from '../model/cartItem.js';
 import { Product } from '../model/product.js';
 
 const service = new Service();
 let cart = [];
-
-const getListPhone = async () => {
-  const res = await service.getPhones();
-  return res.data;
-};
 
 const renderList = (phoneList) => {
   let content = '';
@@ -24,7 +19,6 @@ const renderList = (phoneList) => {
             <div class="d-flex justify-content-start py-1">
           <span class='text-light'><b>Screen:</b></span>
           <span class='text-light'>&nbsp ${ele.screen}</span>
-
         </div>
         <div class="d-flex justify-content-start py-1">
           <span class='text-light'><b>Back Camera:</b> ${ele.backCamera}</span>
@@ -133,7 +127,7 @@ const findItemById = (cart, id) => {
 };
 
 window.onload = async () => {
-  const phoneList = await getListPhone();
+  const phoneList = await service.getPhones();
   renderList(phoneList);
   cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
   renderCart(cart);
@@ -141,7 +135,7 @@ window.onload = async () => {
 
 //lọc phone theo hãng
 getEle('selectList').onclick = async () => {
-  const data = await getListPhone();
+  const data = await service.getPhones();
   const selectValue = getEle('selectList').value;
   let filterData =
     selectValue == 'all' ? data : data.filter((ele) => ele.type == selectValue);
@@ -149,8 +143,8 @@ getEle('selectList').onclick = async () => {
 };
 
 window.btnAddToCart = async (productId) => {
-  const res = await service.getPhoneById(productId);
-  const { id, name, price, screen, backCamera, frontCamera, img, desc, type } = res.data;
+  const phoneData = await service.getPhoneById(productId);
+  const { id, name, price, screen, backCamera, frontCamera, img, desc, type } = phoneData;
   const product = new Product(
     id,
     name,
