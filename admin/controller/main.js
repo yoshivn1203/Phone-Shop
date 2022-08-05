@@ -2,7 +2,7 @@ const getEle = (id) => document.getElementById(id);
 const resetForm = (formId) => getEle(formId).reset();
 
 import { CustomModal, Helper } from './utis.js';
-import { Services } from './phoneService.js';
+import { Services } from '../services/phoneService.js';
 import { Validate } from './validate.js';
 import { Phone } from '../model/phone.js';
 
@@ -10,13 +10,8 @@ const helper = new Helper();
 const service = new Services();
 const validate = new Validate();
 
-const getListPhone = async () => {
-  const res = await service.getPhones();
-  return res.data;
-};
-
 const renderList = async () => {
-  const phoneList = await getListPhone();
+  const phoneList = await service.getPhones();
   let content = '';
   phoneList.forEach((ele) => {
     content += ` <tr>
@@ -45,7 +40,7 @@ getEle('addPhoneForm').onclick = () => {
 };
 
 getEle('btnAddPhone').onclick = async () => {
-  const phoneList = await getListPhone();
+  const phoneList = await service.getPhones();
   if (!validate.isValid(phoneList)) return;
 
   const inputs = helper.getInputValue();
@@ -72,13 +67,13 @@ window.btnEdit = async (id) => {
   getEle('btnUpdate').style.display = 'inline-block';
   getEle('btnAddPhone').style.display = 'none';
 
-  let res = await service.getPhoneById(id);
-  let arrObjValue = Object.keys(res.data).map((k) => res.data[k]);
+  let data = await service.getPhoneById(id);
+  let arrObjValue = Object.keys(data).map((k) => data[k]);
   arrObjValue.pop(); // Remove id from array
   helper.fill(arrObjValue); // fill the form with values
 
   getEle('btnUpdate').onclick = async () => {
-    const phoneList = await getListPhone();
+    const phoneList = await service.getPhones();
     if (!validate.isValid(phoneList, true)) return;
 
     const inputs = helper.getInputValue();
