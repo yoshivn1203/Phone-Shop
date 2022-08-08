@@ -9,9 +9,8 @@ html {
 }
 
 body {
-  padding-top: 70px;
   margin-bottom: 0px;
-  background-color: rgba(241, 241, 241, 0.2);
+  background-color: #f7f7f7;
 }
 
 p {
@@ -45,7 +44,7 @@ h2 {
 .btn:focus {
   outline: 0;
   box-shadow: none !important;
-  box-shadow: 0 0 0 2px #404b61, inset 0 0 0 2px #ffffff;
+  /* box-shadow: 0 0 0 2px #404b61, inset 0 0 0 2px #ffffff; */
 }
 .btn:active {
   transform: scale(0.95);
@@ -60,12 +59,7 @@ h2 {
 }
 
 .gradient-custom {
-  /* fallback for old browsers */
-  background: #2c5364;
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
 }
 
 header #navbarColor01 a {
@@ -79,14 +73,40 @@ header #navbarColor01 a:hover {
 .nav1 {
   display: flex;
   justify-content: flex-start;
-  width: 45%;
+  width: 100%;
 }
 
 .nav2 {
   display: flex;
-  justify-content: flex-end;
-  width: 45%;
+  justify-content: space-evenly;
+  width: 100%;
 }
+
+/* BANNER */
+nav.black {
+  background: rgba(0, 0, 0, 0.8);
+}
+.banner-image {
+  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)),
+    url(../img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.banner-phone-image img {
+  width: 800px;
+}
+.star-rating a {
+  color: rgba(255, 255, 255, 0.5);
+  margin-right: 10px;
+}
+.star-rating a:hover {
+  color: #fff;
+}
+.aa {
+  line-height: 26px;
+}
+
+/* //BANNER */
 
 /* CART */
 .form {
@@ -108,11 +128,11 @@ header #navbarColor01 a:hover {
   background-color: #e96949;
 }
 
-#payNow {
+.yellow-btn {
   background-color: #f0b80f;
 }
 
-#payNow:hover {
+.yellow-btn:hover {
   background-color: #f1ca55;
 }
 
@@ -178,7 +198,7 @@ small {
 
 .cart__contents {
   position: fixed;
-  top: 8%;
+  top: 10%;
   bottom: 0;
   left: 100%;
   width: 500px;
@@ -384,6 +404,7 @@ span {
   border-radius: 15px;
   padding: 10px;
   cursor: pointer;
+  box-shadow: 6px 6px 12px #e2ebfc, -6px -6px 12px #fff;
   transition: 0.3s all ease-in-out;
   height: 600px;
   max-width: 100%;
@@ -412,7 +433,7 @@ span {
     rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
     rgba(240, 46, 170, 0.05) 25px 25px; */
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  box-shadow: #293e63 0px 22px 70px 4px;
   transform: scale(1.1);
   z-index: 1;
 }
@@ -481,12 +502,15 @@ span {
   position: absolute;
   top: 100%;
   left: 25%;
-  -webkit-transition: all 0.5s ease-in-out 0s;
-  -moz-transition: all 0.5s ease-in-out 0s;
   transition: all 0.5s ease-in-out 0s;
   z-index: 1;
   background-color: #daa300;
   opacity: 0;
+}
+
+.card:hover .btn:active {
+  transition: all 0.15s ease-in-out 0s;
+  background-color: #ffdc74;
 }
 
 .card .btn:hover {
@@ -558,7 +582,9 @@ footer {
   .col-md-6 {
     padding-left: 0;
   }
-
+  .cart__contents {
+    width: 400px;
+  }
   #selectList {
     width: 100% !important;
   }

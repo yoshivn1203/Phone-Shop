@@ -16,7 +16,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark gradient-custom fixed-top mb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top mb-5">
       <div class="container-fluid">
 
         <a class="navbar-brand mx-5" href="#"> <i class="fa-lg fa-solid fa-robot me-3"></i></i>Cyber Phone </a>
@@ -62,9 +62,32 @@
       </div>
     </nav>
   </header>
+  <div class="banner-image">
+    <div class="container py-5">
+      <div class="row py-5 align-items-center">
+        <div class="col-lg-6">
+          <h5 class="display-4 my-4 font-weight-bold text-white">Galaxy S22｜S22+</h5>
+          <div class="d-flex star-rating mb-5"> <a href=""><i class="lni lni-star-filled"></i></a> <a href=""><i class="lni lni-star-filled"></i></a> <a href=""><i class="lni lni-star-filled"></i></a> <a href=""><i class="lni lni-star"></i></a> <a href=""><i class="lni lni-star"></i></a> </div>
+          <p class="h5 aa mb-4 pb-3 text-white-50">Get select Galaxy Buds2 or Buds Live on us with Galaxy S22+.⌂ Plus, get up to $700 enhanced trade-in credit. For a limited time.
 
+            Get hands on with the S22 and S22+. See in AR >></p>
+          <h3 class="text-white mb-5">1325$</h3>
+          <div class="d-flex">
+          <a href="#" class="btn btn-lg yellow-btn"><i class="lni lni-play-store mr-2"></i> Find out more!</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-lg-right text-center mt-5 mt-lg-0">
+          <div class="banner-phone-image"> <img src="../view/img/s22.png"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
   <div class="container" id="content-wrap">
+   
+   
     <main role="main" class="pb-5 mb-5">
+      
       <div class="container">
 
         <div class="my-5">
@@ -119,7 +142,7 @@
           </table>
           <div class="form__footer">
             <button class="btn first js-toggle-cart">Continue Shopping</button>
-             <button class="btn" onclick="payNow()" id="payNow" >Pay Now</button>
+             <button class="btn yellow-btn" onclick="payNow()" >Pay Now</button>
              <button class="btn me-5 ms-0 px-4" onclick="emptyCart()" id="emptyCart"><i class="fa-solid fa-trash me-2"></i> Empty Cart</button>
               
           </div>
@@ -251,9 +274,19 @@
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script >
+  // toggle shopping cart  
     $('.js-toggle-cart, .cart__overlay').on('click', function () {
      $('.cart').toggleClass('is-hidden');
       });
+ // change nav bar color when scroll
+      $(window).on('scroll',function(){
+            if(this.scrollY >150){
+                $('nav').addClass('black');
+            }
+            else{
+                $('nav').removeClass('black');
+            }
+        })
   </script>
   <script type="module" src="../controller/main.js"></script>
 </body>

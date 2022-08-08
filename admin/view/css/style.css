@@ -11,7 +11,7 @@ html {
 body {
   padding-top: 70px;
   margin-bottom: 0px;
-  background-color: rgba(241, 241, 241, 0.3);
+  background-color: #f7f7f7;
 }
 
 p {
@@ -79,12 +79,7 @@ main {
 }
 
 .gradient-custom {
-  /* fallback for old browsers */
-  background: #2c5364;
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8));
 }
 
 header #navbarColor01 a {
@@ -93,6 +88,9 @@ header #navbarColor01 a {
 
 header #navbarColor01 a:hover {
   transform: scale(1.15);
+}
+.black {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .nav1 {
@@ -108,7 +106,7 @@ header #navbarColor01 a:hover {
 }
 
 .phoneBanner {
-  background-color: #5493e6;
+  background-color: rgba(29, 38, 113, 0.7);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   align-items: center;

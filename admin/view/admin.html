@@ -16,7 +16,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark gradient-custom fixed-top mb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark black fixed-top mb-5">
       <div class="container-fluid">
 
         <a class="navbar-brand mx-5" href="#"> <i class="fa-lg fa-solid fa-robot me-3"></i></i>Cyber Phone </a>
@@ -39,11 +39,23 @@
 
             <li class="nav-item text-center">
               <a class="nav-link active" href="../../customer/view/store.html" role="button" aria-haspopup="true"
+              aria-expanded="false">
+              <div>
+                <i class="fa-solid fa-xl fa-store"></i>
+              </div>
+              Store
+            </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav me-auto nav2">
+            <li class="nav-item text-center ">
+              <a class="nav-link  js-toggle-cart active"  role="button" aria-haspopup="true"
                 aria-expanded="false">
                 <div>
-                  <i class="fa-solid fa-xl fa-store"></i>
+                  <i class="fa-solid fa-xl fa-shopping-cart"></i>
+                  <span class="badge rounded-pill badge-notification bg-light text-dark" id = 'cartCount'></span>
                 </div>
-                Store
+                Cart
               </a>
             </li>
           </ul>

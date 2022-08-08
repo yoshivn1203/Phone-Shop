@@ -41,7 +41,14 @@ const renderList = (phoneList) => {
         <div class="d-flex justify-content-start pt-3">
           <span><b>Description:</b> ${ele.desc}</span>
         </div>
-        <div class="d-flex justify-content-end pt-3">
+        <div class="d-flex justify-content-between pt-3">
+          <div class="text-warning">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </div>
           <span class = 'text-success'><b>In Stock</b></span>
         </div>
         <button type="button" class="btn btn-block w-50" onclick ="btnAddToCart('${
