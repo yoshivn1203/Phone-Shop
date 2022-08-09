@@ -96,13 +96,13 @@ header #navbarColor01 a:hover {
 .nav1 {
   display: flex;
   justify-content: flex-start;
-  width: 45%;
+  width: 100%;
 }
 
 .nav2 {
   display: flex;
   justify-content: flex-end;
-  width: 45%;
+  width: 100%;
 }
 
 .phoneBanner {
