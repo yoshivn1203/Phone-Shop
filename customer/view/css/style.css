@@ -88,7 +88,7 @@ nav.black {
 }
 .banner-image {
   background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)),
-    url(../img/bg.jpg);
+    url(../img/banner.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -106,6 +106,10 @@ nav.black {
   line-height: 26px;
 }
 
+.banner-image .btn {
+  font-size: 18px;
+}
+
 /* //BANNER */
 
 /* CART */
@@ -120,12 +124,12 @@ nav.black {
   margin-top: 24px;
 }
 
-#emptyCart {
-  background-color: #e7380c;
+.red-btn {
+  background-color: #df461f;
 }
 
-#emptyCart:hover {
-  background-color: #e96949;
+.red-btn:hover {
+  background-color: #e96443;
 }
 
 .yellow-btn {
